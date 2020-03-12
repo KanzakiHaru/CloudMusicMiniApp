@@ -1,0 +1,17 @@
+<view class = "square_wrap">
+  <view class="header">
+    <view class="back">
+      <image src="../../assets/back.png" />
+    </view>
+    <text class="title">歌单广场</text>
+    <view class="more">
+      <image src="../../assets/more.png" />
+    </view>
+  </view>
+  <TabBar bind:getCurrentTag ="getCurrentTag" 
+    bind:getAlbumList = "getAlbumList" 
+    bind:setCurrentPage = "setCurrentPage"
+    hotCate ="{{hotCate}}"></TabBar>
+  <ListDetail 
+  albumList = "{{albumList}}"></ListDetail>
+</view>

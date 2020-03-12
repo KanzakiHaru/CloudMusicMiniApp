@@ -1,0 +1,44 @@
+<!--pages/recommendDaily/recommendDaily.wxml-->
+<view class="toptitle">
+  <text class="iconfont icon-fanhui1"></text>
+  <text class="iconfont icon-wenti"></text>
+  <view class="icon-music">
+    <text></text>
+    <text></text>
+    <text></text>
+    <text></text>
+  </view>
+</view>
+<songList 
+  songs="{{songs}}" 
+  tipsHeight="{{125}}"
+  chooseAll = "{{chooseAll}}"
+  hasChooseall="{{hasChooseall}}"
+  bind:haschecked="haschecked"
+>
+  <view slot="tips" class="tips">
+    <text class="day">{{day}}</text>
+    <text class="line">/</text>
+    <text class="mounth">{{mounth}}</text>
+    <view class="histoty_recom">
+      <text>历史推荐</text> 
+      <image src="/assets/historyrecom.png"/>
+    </view>
+  </view>
+  <view wx:if="{{!chooseAll}}" slot="playmenu" class="playmenu">
+    <text class="iconfont icon-bofang" bindtap="checkboxtap"></text>
+    <text class="playall">播放全部</text>
+    <text bindtap="clickChoosemore">
+      <text class="iconfont icon-gengduo1"></text>
+      <text class="choosemore">多选</text>
+    </text>
+  </view>
+  <view wx:else slot="playmenu" class="chooseAll">
+      <checkbox-group bindchange="checkboxtap">
+        <checkbox checked="{{hasChoose}}"></checkbox>
+      </checkbox-group>
+      <text class="checkall">全选</text>
+      <text class="finish" bindtap="clickChoosemore">完成</text>
+  </view>
+</songList>
+
